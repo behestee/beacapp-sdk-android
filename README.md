@@ -24,18 +24,18 @@ BeacappSDKforAndroidの主な機能は以下の通りです。
 ## 実行環境
 * Android Studio 1.0 and later
 * Android4.3 and later
+* Bluetooth Low Energy 対応機種
 
 ## SDKの導入
 1.「libBeacappSDKforAndroid.jar」をダウンロードし、プロジェクトにインポートします。
 
-2.[AWS SDK for Android](http://aws.amazon.com/jp/mobile/sdk/)をダウンロードし、プロジェクトにインポートします。（※1）
-
-	・必要なjarファイルは以下の4つです。
-		aws-android-sdk-ddb-mapper
-		aws-android-sdk-ddb
-		aws-android-sdk-core
-		aws-android-sdk-kinesis
-	[Github](https://github.com/aws/aws-sdk-android)
+2.[AWS SDK for Android](http://aws.amazon.com/jp/mobile/sdk/)をダウンロードし、プロジェクトにインポートします。（※1）  
+  - 必要なjarファイルは以下の4つです。    
+      - aws-android-sdk-ddb-mapper    
+      - aws-android-sdk-ddb    
+      - aws-android-sdk-core    
+      - aws-android-sdk-kinesis    
+	 [Github](https://github.com/aws/aws-sdk-android)  
 
 （※1）
 Android Studioをご利用の方はGradleに以下の記載をするだけでもインポート可能です。
@@ -56,13 +56,13 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 
 
 ## SDKの使い方
-・AndroidManifest
-　必要な権限を追加します
-	-インターネットアクセス
-	-Bluetoothアクセス
-	-GPSアクセス
-　サービスの登録をします
-　
+・AndroidManifest  
+  - 必要な権限を追加します  
+      - インターネットアクセス  
+      - Bluetoothアクセス  
+      - GPSアクセス  
+  - サービスの登録をします  
+```
 	<service
 		android:name="com.beacapp.service.JBCPScanService" android:process=":bleservice" android:exported="false" >
 		<intent-filter>
@@ -70,18 +70,22 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 			<action android:name="com.beacapp.BLEServiceCalbackAIDL" > </action>
 		</intent-filter>
 	</service>
+```
 
-・Activity
-　必要なライブラリをインポートします
+・Activity  
+  - 必要なライブラリをインポートします
 　
+```
 	import com.beacapp.FireEventListener;
 	import com.beacapp.JBCPException;
 	import com.beacapp.JBCPManager;
 	import com.beacapp.ShouldUpdateEventsListener;
 	import com.beacapp.UpdateEventsListener;
-	import com.beacapp.ServiceNotificationListener;
+```
 
-　マネージャーを初期化してリスナーの登録をします
+  - マネージャーを初期化してリスナーの登録をします
+　
+```	
 	try {
 		jbcpManager = JBCPManager.getManager(this, requestToken, secretKey, null);
 	} catch (JBCPException e) {
@@ -90,23 +94,28 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 
 	jbcpManager.setUpdateEventsListener(updateEventsListener);
 	jbcpManager.setShouldUpdateEventsListener(shouldUpdateEventsListener);
-	jbcpManager.setServiceNotificationListener(serviceNotificationListener);
-	
-　スキャン開始
+	jbcpManager.setFireEventListener(fireEventListener);
+```	
+  - スキャン開始
+　
+```　
 	jbcpManager.startScan();
-	
-　スキャン終了
-	jbcpManager.stopJbcpService();
-	
+```	
+  - スキャン終了 
+　
+```
+	jbcpManager.stopScan();
+```	
 
 ## 補足
 
 1. サンプルコード
-	BeacappSDKforAndroidの一般的な処理の流れとしてのサンプルコードです。
+	BeacappSDKforAndroidの一般的な処理の流れとしてのサンプルコードです。  
 AndroidManifest.xml
 
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+```
+    <?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jmas.co.jp.beacappandroidtest" >
 
     <!-- GPSを使用するために必要なパーミッション -->
@@ -147,6 +156,7 @@ AndroidManifest.xml
     </application>
 
 </manifest>
+```
 
 xxxActivity.java
 
