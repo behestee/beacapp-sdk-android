@@ -27,27 +27,31 @@ BeacappSDKforAndroidの主な機能は以下の通りです。
 
 ## SDKの導入
 1.「libBeacappSDKforAndroid.jar」をダウンロードし、プロジェクトにインポートします。
+
 2.[AWS SDK for Android](http://aws.amazon.com/jp/mobile/sdk/)をダウンロードし、プロジェクトにインポートします。（※1）
+
 	・必要なjarファイルは以下の4つです。
 		aws-android-sdk-ddb-mapper
 		aws-android-sdk-ddb
 		aws-android-sdk-core
 		aws-android-sdk-kinesis
 	[Github](https://github.com/aws/aws-sdk-android)
+
 （※1）
 Android Studioをご利用の方はGradleに以下の記載をするだけでもインポート可能です。
- buildscript {
-     repositories {
-         jcenter()
-     }
-     dependencies {
-         classpath 'com.android.tools.build:gradle:1.1.0'
-         classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
-         classpath 'com.amazonaws:aws-android-sdk-ddb:2.1.+'
-         classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
-         classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
-     }
- }
+
+	buildscript {
+		repositories {
+         		jcenter()
+     		}
+     		dependencies {
+         		classpath 'com.android.tools.build:gradle:1.1.0'
+         		classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
+         		classpath 'com.amazonaws:aws-android-sdk-ddb:2.1.+'
+         		classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
+         		classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
+         	}
+         }
 
 
 
@@ -58,6 +62,7 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 	-Bluetoothアクセス
 	-GPSアクセス
 　サービスの登録をします
+　
 	<service
 		android:name="com.beacapp.service.JBCPScanService" android:process=":bleservice" android:exported="false" >
 		<intent-filter>
@@ -68,6 +73,7 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 
 ・Activity
 　必要なライブラリをインポートします
+　
 	import com.beacapp.FireEventListener;
 	import com.beacapp.JBCPException;
 	import com.beacapp.JBCPManager;
@@ -143,9 +149,9 @@ AndroidManifest.xml
 </manifest>
 
 xxxActivity.java
-整備中です。
 
 イベント取得処理
+
 	public FireEventListener fireEventListener = new FireEventListener() {
 		@Override
 		public void fireEvent(JSONObject event) {
