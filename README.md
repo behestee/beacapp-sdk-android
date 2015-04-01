@@ -208,8 +208,8 @@ Beacappのご利用申し込みおよび利用規約の同意は[こちら](http
 
 - BeacappSDKforAndroidでは、[Version2 of AWS SDK for Android](https://github.com/aws/aws-sdk-android)が必要となります。
 
-    Version2 of AWS SDK for iOSは　Apache 2.0ライセンスとなります。
-	Version2 of AWS SDK for iOS
+    Version2 of AWS SDK for Androidは　Apache 2.0ライセンスとなります。
+	Version2 of AWS SDK for Android
     Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
     [https://github.com/aws/aws-sdk-android/blob/master/LICENSE.txt](https://github.com/aws/aws-sdk-android/blob/master/LICENSE.txt)
 
