@@ -26,17 +26,162 @@ BeacappSDKforAndroidの主な機能は以下の通りです。
 * Android4.3 and later
 
 ## SDKの導入
-整備中です。
+1.「libBeacappSDKforAndroid.jar」をダウンロードし、プロジェクトにインポートします。
+2.[AWS SDK for Android](http://aws.amazon.com/jp/mobile/sdk/)をダウンロードし、プロジェクトにインポートします。（※1）
+	・必要なjarファイルは以下の4つです。
+		aws-android-sdk-ddb-mapper
+		aws-android-sdk-ddb
+		aws-android-sdk-core
+		aws-android-sdk-kinesis
+	[Github](https://github.com/aws/aws-sdk-android)
+（※1）
+Android Studioをご利用の方はGradleに以下の記載をするだけでもインポート可能です。
+ buildscript {
+     repositories {
+         jcenter()
+     }
+     dependencies {
+         classpath 'com.android.tools.build:gradle:1.1.0'
+         classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
+         classpath 'com.amazonaws:aws-android-sdk-ddb:2.1.+'
+         classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
+         classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
+     }
+ }
+
+
 
 ## SDKの使い方
-整備中です。
+・AndroidManifest
+　必要な権限を追加します
+	-インターネットアクセス
+	-Bluetoothアクセス
+	-GPSアクセス
+　サービスの登録をします
+	<service
+		android:name="com.beacapp.service.JBCPScanService" android:process=":bleservice" android:exported="false" >
+		<intent-filter>
+			<action android:name="com.beacapp.BLEServiceAIDL" > </action>
+			<action android:name="com.beacapp.BLEServiceCalbackAIDL" > </action>
+		</intent-filter>
+	</service>
+
+・Activity
+　必要なライブラリをインポートします
+	import com.beacapp.FireEventListener;
+	import com.beacapp.JBCPException;
+	import com.beacapp.JBCPManager;
+	import com.beacapp.ShouldUpdateEventsListener;
+	import com.beacapp.UpdateEventsListener;
+	import com.beacapp.ServiceNotificationListener;
+
+　マネージャーを初期化してリスナーの登録をします
+	try {
+		jbcpManager = JBCPManager.getManager(this, requestToken, secretKey, null);
+	} catch (JBCPException e) {
+		Log.d("", e.getMessage());
+	}
+
+	jbcpManager.setUpdateEventsListener(updateEventsListener);
+	jbcpManager.setShouldUpdateEventsListener(shouldUpdateEventsListener);
+	jbcpManager.setServiceNotificationListener(serviceNotificationListener);
+	
+　スキャン開始
+	jbcpManager.startScan();
+	
+　スキャン終了
+	jbcpManager.stopJbcpService();
+	
 
 ## 補足
 
 1. サンプルコード
 	BeacappSDKforAndroidの一般的な処理の流れとしてのサンプルコードです。
-	整備中です。
+AndroidManifest.xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jmas.co.jp.beacappandroidtest" >
+
+    <!-- GPSを使用するために必要なパーミッション -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature android:name="android.hardware.bruetooth_le" android:required="true"/>
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="jmas.co.jp.beacappandroidtest.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name="com.beacapp.service.JBCPScanService" android:process=":bleservice" android:exported="false" >
+            <intent-filter>
+                <action android:name="com.beacapp.BLEServiceAIDL" > </action>
+                <action android:name="com.beacapp.BLEServiceCalbackAIDL" > </action>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
+
+xxxActivity.java
+整備中です。
+
+イベント取得処理
+	public FireEventListener fireEventListener = new FireEventListener() {
+		@Override
+		public void fireEvent(JSONObject event) {
+			setEventText(event);
+
+			JSONObject action_data = event.optJSONObject("action_data");
+			String action = action_data.optString("action");
+
+
+			// URLの場合
+			if(action.equals("jbcp_open_url"))
+			{
+			    eventUrl = action_data.optString("url");
+
+			}
+			//画像の場合
+			else if(action.equals("jbcp_open_image"))
+			{
+			    eventUrl = action_data.optString("url");
+
+			}
+			//カスタムの場合
+			else if(action.equals("jbcp_custom_key_value"))
+			{
+
+			    eventText = action_data.optString("key_values");
+
+			}
+			//テキストの場合
+			else if(action.equals("jbcp_open_text"))
+			{
+			    eventText = action_data.optString("text");
+
+            }
+        }
+    };
 
 
 ## ドキュメント
