@@ -43,8 +43,10 @@ Beacapp では以下のコードを使用する。
 |1002  |DB_ERROR                          |DB関連のエラー                        |
 |1003  |NETWORK_ERROR                     |ネットワークラー                      |
 |1004  |ACCESS_TOKEN_EXPIRED              |アクセストークンの有効期限切れ        |
-|1005  |NOT_SUPPORTED_BLUTOOTH            |Bluetoothデバイスをサポートしていない |
-|...   |...                               |...                                   |
+|1005  |BLUTOOTHLE_NOT_SUPPORTED          |Bluetoothデバイスをサポートしていない |
+|1006  |BLUTOOTHLE_NOT_SUPPORTED          |Bluetoothが使用不可                   |
+|1007  |START_SCAN_FAILED                 |StartScan失敗                         |
+|9999  |SYSTEM_ERROR                      |SDKのエラー                           |
 
 この値は、このクラスのコンスタントとして定義されている。
 
