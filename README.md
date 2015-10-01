@@ -40,18 +40,15 @@ BeacappSDKforAndroidの主な機能は以下の通りです。
 （※1）
 Android Studioをご利用の方はGradleに以下の記載をするだけでもインポート可能です。
 
-	buildscript {
-		repositories {
-         		jcenter()
-     		}
-     		dependencies {
-         		classpath 'com.android.tools.build:gradle:1.1.0'
-         		classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
-         		classpath 'com.amazonaws:aws-android-sdk-ddb:2.1.+'
-         		classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
-         		classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
-         	}
-         }
+	
+     	dependencies {
+        	classpath 'com.android.tools.build:gradle:1.1.0'
+        	classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
+        	classpath 'com.amazonaws:aws-android-sdk-ddb:2.1.+'
+        	classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
+        	classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
+        }
+        
 
 
 
@@ -126,7 +123,7 @@ AndroidManifest.xml
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
-    <uses-feature android:name="android.hardware.bruetooth_le" android:required="true"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
 
     <uses-sdk
         android:minSdkVersion="18"
