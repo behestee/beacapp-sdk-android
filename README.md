@@ -1,4 +1,4 @@
-# Beacapp SDK for Android Version 1.0.0
+# Beacapp SDK for Android Version 1.2.0
 ## はじめに
 [Beacapp](http://www.beacapp.com)で登録したコンテンツをAndroidで利用するためのSDKです。
 
@@ -40,7 +40,7 @@ BeacappSDKforAndroidの主な機能は以下の通りです。
 （※1）
 Android Studioをご利用の方はGradleに以下の記載をするだけでもインポート可能です。
 
-	
+
      	dependencies {
         	classpath 'com.android.tools.build:gradle:1.1.0'
         	classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
@@ -48,7 +48,7 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
         	classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
         	classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
         }
-        
+
 
 
 
@@ -82,7 +82,7 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 
   - マネージャーを初期化してリスナーの登録をします
 　
-```	
+```
 	try {
 		jbcpManager = JBCPManager.getManager(this, requestToken, secretKey, null);
 	} catch (JBCPException e) {
@@ -92,17 +92,17 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 	jbcpManager.setUpdateEventsListener(updateEventsListener);
 	jbcpManager.setShouldUpdateEventsListener(shouldUpdateEventsListener);
 	jbcpManager.setFireEventListener(fireEventListener);
-```	
+```
   - スキャン開始
 　
 ```　
 	jbcpManager.startScan();
-```	
-  - スキャン終了 
+```
+  - スキャン終了
 　
 ```
 	jbcpManager.stopScan();
-```	
+```
 
 ## 補足
 
@@ -219,5 +219,3 @@ Beacappのご利用申し込みおよび利用規約の同意は[こちら](http
 	Version2 of AWS SDK for Android
     Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
     [https://github.com/aws/aws-sdk-android/blob/master/LICENSE.txt](https://github.com/aws/aws-sdk-android/blob/master/LICENSE.txt)
-
-

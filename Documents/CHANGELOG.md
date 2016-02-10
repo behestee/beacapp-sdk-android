@@ -1,5 +1,17 @@
-### 0.1.12 (2014-08-21)
+# BeacappSDKforAndroid CHANGELOG
+## 1.2.0 (2016-02-10)
+Features:
+- カスタムログ送信機能
+- ログへの任意情報付与機能
+- Android5.0以降で、新Bluetoothライブラリを使用するように変更
+- 電力消費量を抑えるためにスキャンの開始終了を繰り返すように変更
+- 以下の不具合修正
+  - BLE接続状態チェック処理
+  - イベント取得処理不具合修正
+  - 非同期での呼び出し時に発生する不具合修正
 
-- JBCPManager のメソッド名変更 createManager -> getManager
-- JBCPManager#getManager の option から enableLocationAuth を削除。この値はサーバから取得する事になったため。
-- FireEventListener の action_data JSONの修正と、詳細説明の記述
+
+
+### 1.0.0 (2015-03-29)
+Features:
+- 初版公開
