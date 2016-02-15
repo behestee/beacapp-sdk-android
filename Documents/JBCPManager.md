@@ -13,8 +13,6 @@ JBCPManager クラスリファレンス
 - SDKの初期化処理
 - イベントデータ更新処理  
   ビーコンリスト、 イベント、トリガー、アクションの更新
-- コンテンツ更新処理  
-  画像や動画などのコンテンツ更新処理
 - ビーコン受信処理開始／終了
 - コールバックの登録
 - デバイス固有の識別子取得
@@ -24,15 +22,12 @@ JBCPManager クラスリファレンス
 
     static JBCPManager getManager(String requestToken, String secretKey, Map<String, Object> options)
     void startUpdateEvents()
-    void startUpdateContents()
     void startScan()
     void stopScan()
     String getDeviceIdentifier()
     void setFireEventListener(FireEventListener listener)
     void setUpdateEventsListener(UpdateEventsListener listener)
-    void setUpdateContentsListener(UpdateContentsListener listener)
     void setShouldUpdateEventsListener(ShouldUpdateEventsListener listener)
-    void setShouldUpdateContentsListener(ShouldUpdateContentsListener listener)
     void setAdditonalLog(String logValue)
     void customLog(String logValue)
 
@@ -117,25 +112,6 @@ void startUpdateEvents()
 #### 例外
 - BeacappException  
  エラーが発生した場合
-
-
-
-
-### startUpdateContents
-
-````````````````````````
-void startUpdateContents()
-````````````````````````
-
-コンテンツデータの更新を開始する。
-コンテンツデータには、SDKで利用する画像、動画などが格納される。  
-更新処理の進捗と完了通知は setUpdateContentsListener でセットされた UpdateContentsListener へコールバックされる。  
-また、SDK利用者は setShouldUpdateContentsListener を呼ぶことで、強制的に更新するかどうかを選択する事も可能である。
-
-#### 例外
-- BeacappException  
- エラーが発生した場合
-
 
 
 
@@ -233,28 +209,6 @@ void setUpdateEventsListener(UpdateEventsListener listener)
 
 
 
-
-### setUpdateContentsListener
-
-````````````````````````````````````````````````````````
-void setUpdateContentsListener(UpdateContentsListener listener)
-````````````````````````````````````````````````````````
-
-イベント情報更新のコールバッククラスをセットする。
-
-
-#### パラメータ
-- listener  
- UpdateContentsListener を実装したクラス
-
-#### 例外
-- BeacappException  
- エラーが発生した場合
-
-
-
-
-
 ```````````````````````````````````````````````````````````````````````
 void setShouldUpdateEventsListener(ShouldUpdateEventsListener listener)
 ```````````````````````````````````````````````````````````````````````
@@ -275,23 +229,6 @@ ShouldUpdateEventsListener クラスの shouldUpdateEvent() が true を返す�
 
 
 
-
-```````````````````````````````````````````````````````````````````````
-void setShouldUpdateContentsListener(ShouldUpdateContentsListener listener)
-```````````````````````````````````````````````````````````````````````
-
-コンテンツ情報の更新確認用のコールバック関数を定義する。  
-startUpdateContents() がコールされると、このコールバック関数にコールバックし、コンテンツ情報を更新するかどうかをSDK利用者に問い合わせる。  
-ShouldUpdateContentsListener クラスの shouldUpdateContent() が true を返すとコンテンツ情報を更新し、 false を返すと更新しない。
-
-
-#### パラメータ
-- listener  
- ShouldUpdateContentsListener を実装したクラス
-
-#### 例外
-- BeacappException  
- エラーが発生した場合
 
 ```````````````````````````````````````````````````````````````````````
 void setAdditonalLog(String logValue)
