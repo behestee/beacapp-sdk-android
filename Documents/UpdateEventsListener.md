@@ -57,4 +57,4 @@ void onFinished(JBCPException error)
 
 #### パラメータ
 - error  
- エラーが発生した場合、詳細情報の JBCPException オブジェクトを格納する。成功した場合は null が格納される。
+ エラーが発生した場合、詳細情報の JBCPException オブジェクトを格納する。成功した場合は error code に 0 が格納される。
