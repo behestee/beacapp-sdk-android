@@ -208,6 +208,7 @@ void setUpdateEventsListener(UpdateEventsListener listener)
 
 
 
+### setShouldUpdateEventsListener
 
 ```````````````````````````````````````````````````````````````````````
 void setShouldUpdateEventsListener(ShouldUpdateEventsListener listener)
@@ -228,7 +229,7 @@ ShouldUpdateEventsListener クラスの shouldUpdateEvent() が true を返す�
 
 
 
-
+### setAdditonalLog
 
 ```````````````````````````````````````````````````````````````````````
 void setAdditonalLog(String logValue)
@@ -247,6 +248,8 @@ void setAdditonalLog(String logValue)
   - BeacappException  
      エラーが発生した場合
 
+
+### customLog
 
 
 ```````````````````````````````````````````````````````````````````````
