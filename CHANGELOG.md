@@ -1,7 +1,7 @@
 ## Change Log
 
 ### upcoming (2017/03/27 18:05 +09:00)
-- [39730ec](https://github.com/JMASystems/beacapp-sdk-android/commit/39730ece9343e9de21f1d63d2880174f083404fc) v2.0
+- [39730ec](https://github.com/JMASystems/beacapp-sdk-android/commit/39730ece9343e9de21f1d63d2880174f083404fc) v2.0(Beacon一覧のDynamoDBの取得処理をCloudFrontに変更)
 
 ### upcoming (2017/03/27 17:51 +09:00)
 - [538dd6a](https://github.com/JMASystems/beacapp-sdk-android/commit/538dd6aa15dc3cbf83f94c331b9e666ae20638ee) GPS取得機能の改善 (@JMASystems)

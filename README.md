@@ -1,4 +1,4 @@
-# Beacapp SDK for Android Version 1.2.1
+# Beacapp SDK for Android Version 2.0.0
 ## はじめに
 [Beacapp](http://www.beacapp.com)で登録したコンテンツをAndroidで利用するためのSDKです。
 
