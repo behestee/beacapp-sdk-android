@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2017/03/27 08:51 +00:00)
+### upcoming (2017/03/27 18:05 +09:00)
+- [39730ec](https://github.com/JMASystems/beacapp-sdk-android/commit/39730ece9343e9de21f1d63d2880174f083404fc) v2.0
+
+### upcoming (2017/03/27 17:51 +09:00)
 - [538dd6a](https://github.com/JMASystems/beacapp-sdk-android/commit/538dd6aa15dc3cbf83f94c331b9e666ae20638ee) GPS取得機能の改善 (@JMASystems)
 - [1ba2bf7](https://github.com/JMASystems/beacapp-sdk-android/commit/1ba2bf7e4b81219c1c937b38f4f7d34d61b32868) Android SDK Version 1.2.2
 - [7dc41f3](https://github.com/JMASystems/beacapp-sdk-android/commit/7dc41f33886b9053f7a7ace77333817fb837217c) Android SDK Version 1.2.1コミット (@Amagai)
