@@ -43,10 +43,10 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 
      	dependencies {
         	classpath 'com.android.tools.build:gradle:1.1.0'
-        	classpath 'com.amazonaws:aws-android-sdk-core:2.1.+'
-        	classpath 'com.amazonaws:aws-android-sdk-ddb:2.1.+'
-        	classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.1.+'
-        	classpath 'com.amazonaws:aws-android-sdk-kinesis:2.1.+'
+        	classpath 'com.amazonaws:aws-android-sdk-core:2.2.10'
+        	classpath 'com.amazonaws:aws-android-sdk-ddb:2.2.10'
+        	classpath 'com.amazonaws:aws-android-sdk-ddb-mapper:2.2.10'
+        	classpath 'com.amazonaws:aws-android-sdk-kinesis:2.2.10'
         }
 
 
