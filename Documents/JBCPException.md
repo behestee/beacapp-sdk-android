@@ -5,14 +5,13 @@ JBCPException クラスリファレンス
     java.lang.Object
      +-- java.lang.Throwable
           +-- java.lang.Exception
-               +-- java.lang.RuntimeException
-                    +-- com.beacapp.JBCPException
+               +-- com.beacapp.JBCPException
 
 
 ### 概要
 
 エラー発生時の詳細情報を格納する例外クラスである。  
-この例外クラスは RuntimeException を継承しているため、メソッドの throws 節でこの例外クラスを宣言する必要はない。  
+この例外クラスは Exception を継承している。  
 getCode() では、本SDKで定義されたエラーコードを取得可能である。
 
 
