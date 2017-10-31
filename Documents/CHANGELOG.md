@@ -1,4 +1,10 @@
 # BeacappSDKforAndroid CHANGELOG
+
+## 3.0.0 (2017-10-31)
+Features:
+- Android7.0 対応
+- SDK内部で発生したエラーは、JBCPExceptionにラッピングしてスローするよう変更
+
 ## 1.2.0 (2016-02-10)
 Features:
 - カスタムログ送信機能

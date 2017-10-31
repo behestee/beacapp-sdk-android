@@ -1,4 +1,4 @@
-# Beacapp SDK for Android Version 2.0.0
+# Beacapp SDK for Android Version 3.0.0
 ## はじめに
 [Beacapp](http://www.beacapp.com)で登録したコンテンツをAndroidで利用するためのSDKです。
 
@@ -29,13 +29,13 @@ BeacappSDKforAndroidの主な機能は以下の通りです。
 ## SDKの導入
 1.「libBeacappSDKforAndroid.jar」をダウンロードし、プロジェクトにインポートします。
 
-2.[AWS SDK for Android](http://aws.amazon.com/jp/mobile/sdk/)をダウンロードし、プロジェクトにインポートします。（※1）  
-  - 必要なjarファイルは以下の4つです。    
-      - aws-android-sdk-ddb-mapper    
-      - aws-android-sdk-ddb    
-      - aws-android-sdk-core    
-      - aws-android-sdk-kinesis    
-	 [Github](https://github.com/aws/aws-sdk-android)  
+2.[AWS SDK for Android](http://aws.amazon.com/jp/mobile/sdk/)をダウンロードし、プロジェクトにインポートします。（※1）
+  - 必要なjarファイルは以下の4つです。
+      - aws-android-sdk-ddb-mapper
+      - aws-android-sdk-ddb
+      - aws-android-sdk-core
+      - aws-android-sdk-kinesis
+	 [Github](https://github.com/aws/aws-sdk-android)
 
 （※1）
 Android Studioをご利用の方はGradleに以下の記載をするだけでもインポート可能です。
@@ -53,12 +53,12 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 
 
 ## SDKの使い方
-・AndroidManifest  
-  - 必要な権限を追加します  
-      - インターネットアクセス  
-      - Bluetoothアクセス  
-      - GPSアクセス  
-  - サービスの登録をします  
+・AndroidManifest
+  - 必要な権限を追加します
+      - インターネットアクセス
+      - Bluetoothアクセス
+      - GPSアクセス
+  - サービスの登録をします
 ```
 	<service
 		android:name="com.beacapp.service.JBCPScanService" android:process=":bleservice" android:exported="false" >
@@ -69,7 +69,7 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 	</service>
 ```
 
-・Activity  
+・Activity
   - 必要なライブラリをインポートします
 　
 ```
@@ -85,29 +85,39 @@ Android Studioをご利用の方はGradleに以下の記載をするだけでも
 ```
 	try {
 		jbcpManager = JBCPManager.getManager(this, requestToken, secretKey, null);
+
+		jbcpManager.setUpdateEventsListener(updateEventsListener);
+		jbcpManager.setShouldUpdateEventsListener(shouldUpdateEventsListener);
+		jbcpManager.setFireEventListener(fireEventListener);
 	} catch (JBCPException e) {
 		Log.d("", e.getMessage());
 	}
 
-	jbcpManager.setUpdateEventsListener(updateEventsListener);
-	jbcpManager.setShouldUpdateEventsListener(shouldUpdateEventsListener);
-	jbcpManager.setFireEventListener(fireEventListener);
 ```
   - スキャン開始
 　
 ```　
-	jbcpManager.startScan();
+	try {
+		jbcpManager.startScan();
+	} catch (JBCPException e) {
+		Log.d("", e.getMessage());
+	}
+
 ```
   - スキャン終了
 　
 ```
-	jbcpManager.stopScan();
+	try {
+		jbcpManager.stopScan();
+	} catch (JBCPException e) {
+		Log.d("", e.getMessage());
+	}
 ```
 
 ## 補足
 
 1. サンプルコード
-	BeacappSDKforAndroidの一般的な処理の流れとしてのサンプルコードです。  
+	BeacappSDKforAndroidの一般的な処理の流れとしてのサンプルコードです。
 AndroidManifest.xml
 
 ```
